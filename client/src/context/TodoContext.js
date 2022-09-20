@@ -13,7 +13,7 @@ export const TodoProvider = ({ children }) => {
 
     // get all todos
     const getTodos = async () => {
-        const res = await fetch('http://localhost:5000/todos')
+        const res = await fetch('https://todoapp392.herokuapp.com/todos')
         const data = await res.json()
 
         setTodos(data)
@@ -21,7 +21,7 @@ export const TodoProvider = ({ children }) => {
 
     // update todo status
     const completeTodo = async (id) => {
-        const res = await fetch(`http://localhost:5000/todo/complete/${id}`)
+        const res = await fetch(`https://todoapp392.herokuapp.com/todo/complete/${id}`)
         const data = await res.json()
 
         setTodos(todos => todos.map((todo) => {
@@ -35,7 +35,7 @@ export const TodoProvider = ({ children }) => {
 
     // delete todo
     const deleteTodo = async (id) => {
-        const res = await fetch(`http://localhost:5000/todo/delete/${id}`, {
+        const res = await fetch(`https://todoapp392.herokuapp.com/todo/delete/${id}`, {
             method: 'DELETE'
         })
         const data = await res.json()
@@ -45,7 +45,7 @@ export const TodoProvider = ({ children }) => {
 
     // create new todo
     const addTodo = async (newTodoData) => {
-        const res = await fetch(`http://localhost:5000/todo/create`, {
+        const res = await fetch(`https://todoapp392.herokuapp.com/todo/create`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ text: newTodoData })
